@@ -4,10 +4,11 @@
     <Product>QolPatches</Product>
     <AssemblyName>ObraDinn.QolPatches</AssemblyName>
     <Description>A plugin for the game "Return of the Obra Dinn" with quality of life patches.</Description>
-    <Version>0.2.0</Version>
+    <Version>1.0.0</Version>
     <Copyright>Copyright © 2022 Simon Sawicki</Copyright>
 
     <TargetFramework>net35</TargetFramework>
+    <Deterministic>true</Deterministic>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
@@ -15,7 +16,7 @@
     <PackageReference Include="BepInEx.Core" Version="5.*" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
 
-    <PackageReference Include="UnityEngine.Modules" Version="5.6.5" IncludeAssets="compile" />
+    <PackageReference Include="UnityEngine.Modules" Version="2017.4" IncludeAssets="compile" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
   </ItemGroup>
 

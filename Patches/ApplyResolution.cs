@@ -5,7 +5,7 @@ namespace ObraDinn.QolPatches.Patches;
 
 public static class ApplyResolution
 {
-    [HarmonyPatch(typeof(ScreenHelper), "ApplyScreenResolution")]
+    [HarmonyPatch(typeof(ScreenHelper), nameof(ScreenHelper.ApplyScreenResolution))]
     [HarmonyPrefix]
     public static bool ScreenHelper_ApplyScreenResolution_Prefix()
     {
@@ -32,7 +32,7 @@ public static class ApplyResolution
         Screen.SetResolution(width, height, Screen.fullScreen);
         QualitySettings.vSyncCount = Plugin.Config.Display.VSync.Value ? 1 : 0;
         Application.targetFrameRate = Plugin.Config.Display.VSync.Value
-            ? 0
+            ? -1
             : (int)Plugin.Config.Display.RefreshRate.Value;
 
         return false;

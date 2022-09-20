@@ -8,7 +8,7 @@ using ObraDinn.QolPatches.Patches;
 namespace ObraDinn.QolPatches;
 
 [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
-public partial class Plugin : BaseUnityPlugin
+public class Plugin : BaseUnityPlugin
 {
     public static new Configuration Config;
 
@@ -36,7 +36,7 @@ public partial class Plugin : BaseUnityPlugin
             3f, "The speed at which the player moves");
 
         Patcher.PatchAll();
-        Logger.LogInfo($"Patches has been applied!");
+        Logger.LogInfo($"Patches have been applied!");
     }
 
     // HACK: Preventing inlining should allow us to patch it later

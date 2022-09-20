@@ -5,16 +5,15 @@ namespace ObraDinn.QolPatches.Patches;
 
 public static class FixResolutionUpdate
 {
-    private static bool prevFullscreen;
+    private static bool prevFullscreen = Screen.fullScreen;
 
     [HarmonyPatch(typeof(Plugin), "Update")]
     [HarmonyPostfix]
-    public static void Game_Update_Postfix()
+    public static void Plugin_Update_Postfix()
     {
-        if (Screen.fullScreen != prevFullscreen)
-        {
-            prevFullscreen = Screen.fullScreen;
-            ScreenHelper.ApplyScreenResolution();
-        }
+        if (Screen.fullScreen == prevFullscreen)
+            return;
+        prevFullscreen = Screen.fullScreen;
+        ScreenHelper.ApplyScreenResolution();
     }
 }
